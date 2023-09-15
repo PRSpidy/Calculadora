@@ -10,33 +10,43 @@
 
     <TextView
         android:id="@+id/textCalculatorName"
-        android:layout_width="411dp"
-        android:layout_height="38dp"
-        android:layout_marginBottom="28dp"
+        android:layout_width="735dp"
+        android:layout_height="27dp"
         android:background="@color/blue"
         android:text="@string/Button_calculadora"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/textResult"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextSizeCheck" />
 
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="75dp"
+        android:layout_height="73dp"
+        android:backgroundTint="@color/black_grey"
+        android:text="@string/Button_7"
+        android:textSize="34sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toStartOf="@+id/button8"
+        app:layout_constraintStart_toStartOf="@+id/invisibleLine"
+        app:layout_constraintTop_toBottomOf="@+id/textCalculatorName" />
+
     <TextView
         android:id="@+id/textResult"
-        android:layout_width="317dp"
-        android:layout_height="122dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="50dp"
+        android:layout_width="261dp"
+        android:layout_height="118dp"
         android:layoutDirection="rtl"
         android:text="@string/text_result"
         android:textColor="@color/white"
         android:textSize="96sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textCalculatorName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/invisibleLine"
+        app:layout_constraintStart_toEndOf="@+id/invisibleLine2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAc"
+        app:layout_constraintVertical_bias="0.641"
         tools:ignore="TextSizeCheck" />
 
     <Button
@@ -49,8 +59,7 @@
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonDecimal"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/invisibleLine"
         app:layout_constraintTop_toBottomOf="@+id/button1"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
@@ -78,7 +87,6 @@
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonDecimal"
         app:layout_constraintEnd_toStartOf="@+id/buttonAdd"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/button6" />
 
@@ -86,7 +94,7 @@
         android:id="@+id/buttonAdd"
         android:layout_width="75dp"
         android:layout_height="73dp"
-        android:backgroundTint="#FF9800"
+        android:backgroundTint="@color/orange"
         android:text="@string/Button_add"
         android:textSize="34sp"
         app:cornerRadius="10dp"
@@ -122,7 +130,7 @@
         app:layout_constraintEnd_toStartOf="@+id/button9"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button7"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAc" />
+        app:layout_constraintTop_toBottomOf="@+id/textCalculatorName" />
 
     <Button
         android:id="@+id/button6"
@@ -150,7 +158,7 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonMultiply"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button8"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSplit" />
+        app:layout_constraintTop_toBottomOf="@+id/textCalculatorName" />
 
     <Button
         android:id="@+id/buttonMinus"
@@ -178,21 +186,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button9"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSplit" />
+        app:layout_constraintTop_toBottomOf="@+id/textCalculatorName" />
 
     <Button
         android:id="@+id/buttonSplit"
-        android:layout_width="175dp"
+        android:layout_width="103dp"
         android:layout_height="73dp"
         android:backgroundTint="@color/orange"
         android:text="@string/Button_Split"
         android:textSize="34sp"
         app:cornerRadius="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/button9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintBottom_toTopOf="@+id/textResult"
+        app:layout_constraintEnd_toStartOf="@+id/invisibleLine"
         app:layout_constraintStart_toEndOf="@+id/buttonAc"
-        app:layout_constraintTop_toBottomOf="@+id/textResult" />
+        app:layout_constraintTop_toBottomOf="@+id/textCalculatorName" />
 
     <Button
         android:id="@+id/buttonDecimal"
@@ -232,8 +239,7 @@
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toTopOf="@+id/button0"
         app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/invisibleLine"
         app:layout_constraintTop_toBottomOf="@+id/button4" />
 
     <Button
@@ -246,61 +252,46 @@
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toTopOf="@+id/button1"
         app:layout_constraintEnd_toStartOf="@+id/button5"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/invisibleLine"
         app:layout_constraintTop_toBottomOf="@+id/button7" />
 
     <Button
-        android:id="@+id/button7"
-        android:layout_width="75dp"
-        android:layout_height="73dp"
-        android:backgroundTint="@color/black_grey"
-        android:text="@string/Button_7"
-        android:textSize="34sp"
-        app:cornerRadius="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toStartOf="@+id/button8"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAc" />
-
-    <Button
         android:id="@+id/buttonAc"
-        android:layout_width="175dp"
-        android:layout_height="73dp"
+        android:layout_width="125dp"
+        android:layout_height="69dp"
         android:backgroundTint="@color/grey"
         android:text="@string/Button_ac"
         android:textColor="@color/black"
         android:textSize="34sp"
         app:cornerRadius="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/button7"
+        app:layout_constraintBottom_toTopOf="@+id/textResult"
         app:layout_constraintEnd_toStartOf="@+id/buttonSplit"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/invisibleLine2"
+        app:layout_constraintTop_toBottomOf="@+id/textCalculatorName" />
+
+    <View
+        android:id="@+id/invisibleLine"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textResult" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="26dp" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="top" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="237dp" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="top" />
+    <View
+        android:id="@+id/invisibleLine2"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.039"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

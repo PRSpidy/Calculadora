@@ -6,6 +6,13 @@ import android.widget.Button
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
+
+    //Variables
+    private var firstNumber = ""
+    private var result = ""
+    private var operation = ""
+    private var decimal = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -32,11 +39,7 @@ class MainActivity : AppCompatActivity() {
         //Text results
         val textResult: TextView = findViewById(R.id.textResult)
 
-        //Variables
-        var firstNumber = ""
-        var result = ""
-        var operation = ""
-        var decimal = false
+
 
         //Buttons click
         button0.setOnClickListener {
@@ -190,5 +193,36 @@ class MainActivity : AppCompatActivity() {
             result = ""
             operation = ""
         }
+
+        savedInstanceState?.let {
+            firstNumber = it.getString("firstNumber", "")
+            result = it.getString("result", "")
+            operation = it.getString("operation", "")
+            decimal = it.getBoolean("decimal", false)
+            textResult.text = result
+        }
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putString("firstNumber", firstNumber)
+        outState.putString("result", result)
+        outState.putString("operation", operation)
+        outState.putBoolean("decimal", decimal)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        firstNumber = savedInstanceState.getString("firstNumber", firstNumber)
+        result = savedInstanceState.getString("result", result)
+        operation = savedInstanceState.getString("operation", operation)
+        decimal = savedInstanceState.getBoolean("decimal", decimal)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val text:TextView = findViewById(R.id.textResult)
+        text.text = result
+    }
+
 }
