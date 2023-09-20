@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
     private var result = ""
     private var operation = ""
     private var decimal = false
+    private var response = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +44,9 @@ class MainActivity : AppCompatActivity() {
 
         //Buttons click
         button0.setOnClickListener {
+            if(response){
+                allTo0()
+            }
             if(!decimal){
                 result += 0
             }else{
@@ -52,6 +56,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         button1.setOnClickListener {
+            if(response){
+                allTo0()
+            }
             if(!decimal){
                 result += 1
             }else{
@@ -61,6 +68,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         button2.setOnClickListener {
+            if(response){
+                allTo0()
+            }
             if(!decimal){
                 result += 2
             }else{
@@ -70,6 +80,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         button3.setOnClickListener {
+            if(response){
+                allTo0()
+            }
             if(!decimal){
                 result += 3
             }else{
@@ -79,6 +92,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         button4.setOnClickListener {
+            if(response){
+                allTo0()
+            }
             if(!decimal){
                 result += 4
             }else{
@@ -88,6 +104,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         button5.setOnClickListener {
+            if(response){
+                allTo0()
+            }
             if(!decimal){
                 result += 5
             }else{
@@ -97,6 +116,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         button6.setOnClickListener {
+            if(response){
+                allTo0()
+            }
             if(!decimal){
                 result += 6
             }else{
@@ -106,6 +128,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         button7.setOnClickListener {
+            if(response){
+                allTo0()
+            }
             if(!decimal){
                 result += 7
             }else{
@@ -115,6 +140,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         button8.setOnClickListener {
+            if(response){
+                allTo0()
+            }
             if(!decimal){
                 result += 8
             }else{
@@ -124,6 +152,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         button9.setOnClickListener {
+            if(response){
+                allTo0()
+            }
             if(!decimal){
                 result += 9
             }else{
@@ -133,6 +164,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonAdd.setOnClickListener {
+            if(response){
+                allTo0()
+            }
             firstNumber = result
             result = ""
             operation = "+"
@@ -140,6 +174,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonMinus.setOnClickListener {
+            if(response){
+                allTo0()
+            }
             firstNumber = result
             result = ""
             operation = "-"
@@ -147,6 +184,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonMultiply.setOnClickListener {
+            if(response){
+                allTo0()
+            }
             firstNumber = result
             result = ""
             operation = "*"
@@ -154,6 +194,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonSplit.setOnClickListener {
+            if(response){
+                allTo0()
+            }
             firstNumber = result
             result = ""
             operation = "/"
@@ -161,6 +204,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonDecimal.setOnClickListener {
+            if(response){
+                allTo0()
+            }
             decimal = true
         }
 
@@ -173,8 +219,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonEquals.setOnClickListener {
-
+            if(response){
+                allTo0()
+            }
             when (operation) {
+
                 "+" -> {
                     result = ((firstNumber).toDouble() + (result).toDouble()).toString()
                 }
@@ -189,9 +238,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             textResult.text = result
-            firstNumber = ""
-            result = ""
-            operation = ""
+            response = true
         }
 
         savedInstanceState?.let {
@@ -199,15 +246,23 @@ class MainActivity : AppCompatActivity() {
             result = it.getString("result", "")
             operation = it.getString("operation", "")
             decimal = it.getBoolean("decimal", false)
+            response = it.getBoolean("decimal", false)
             textResult.text = result
         }
     }
-
+    private fun allTo0(){
+        response = false
+        firstNumber = ""
+        result = ""
+        operation = ""
+        decimal = false
+    }
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putString("firstNumber", firstNumber)
         outState.putString("result", result)
         outState.putString("operation", operation)
         outState.putBoolean("decimal", decimal)
+        outState.putBoolean("response", response)
         super.onSaveInstanceState(outState)
     }
 
@@ -217,6 +272,7 @@ class MainActivity : AppCompatActivity() {
         result = savedInstanceState.getString("result", result)
         operation = savedInstanceState.getString("operation", operation)
         decimal = savedInstanceState.getBoolean("decimal", decimal)
+        response = savedInstanceState.getBoolean("response", response)
     }
 
     override fun onResume() {
